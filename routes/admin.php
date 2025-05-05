@@ -1,12 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CategoryController;
 use Illuminate\Support\Facades\Route;
-use Livewire\Volt\Volt;
 
-Route::get('/', function(){
-    return 'Hello Admin';
-})->name('dashboard');
-
-Route::get('/courses', function(){
-    return 'Courses';
-})->name('courses');
+Route::resource('categories', CategoryController::class);
