@@ -25,9 +25,7 @@
                     <th scope="col" class="px-6 py-3">
                         Name
                     </th>
-                    <th scope="col" class="px-6 py-3">
-                        Edit
-                    </th>
+                    <th scope="col" class="px-6 py-3" width="10px"/>
                 </tr>
             </thead>
             <tbody>
@@ -40,7 +38,9 @@
                         {{ $category->name }}
                     </td>
                     <td class="px-6 py-4">
-                        
+                        <flux:button href="{{ route('admin.categories.edit', $category ) }}" size="xs" class="mb-2 mt-2 cursor-pointer">
+                            Edit
+                        </flux:button>
                     </td>
                 </tr>
                 @endforeach
