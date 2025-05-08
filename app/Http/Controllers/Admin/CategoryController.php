@@ -13,7 +13,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
+        $categories = Category::orderBy('id', 'desc')
+                        ->get();
         return view('admin.categories.index', compact('categories'));
     }
 
@@ -22,7 +23,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.categories.create');
     }
 
     /**
@@ -30,7 +31,19 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'name' => 'required|string|min:3|max:255',
+        ]);
+
+        Category::create($data);
+
+        session()->flash('swal', [
+            'title' => 'Success',
+            'text' => 'The category was created successfully',
+            'icon' => 'success'
+        ]);
+
+        return redirect()->route('admin.categories.index');
     }
 
     /**
