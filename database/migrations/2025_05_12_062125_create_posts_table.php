@@ -15,8 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('slug')->unique();
-            $table->text('excerpt');
-            $table->mediumText('content');
+            $table->text('excerpt')
+                ->nullable();
+            $table->mediumText('content')
+                ->nullable();
             $table->string('img_path')->nullable();
             $table->foreignId('user_id')
                 ->constrained()

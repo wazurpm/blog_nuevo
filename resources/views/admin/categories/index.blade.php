@@ -10,7 +10,7 @@
             </flux:breadcrumbs.item>
         </flux:breadcrumbs>
 
-        <flux:button :href="route('admin.categories.create')" size="sm" icon="plus">
+        <flux:button :href="route('admin.categories.create')" size="sm" icon="plus" class="btn btn-blue">
             Add new
         </flux:button>
     </div>
@@ -39,17 +39,19 @@
                     </td>
                     <td class="px-6 py-4">
                         <div class="flex space-x-2">
-                            <flux:button :href="route('admin.categories.edit', $category )" class="mb-2 mt-2 cursor-pointer">
-                                Edit
-                            </flux:button>
+                            <flux:button.group>
+                                <flux:button :href="route('admin.categories.edit', $category )" class="mb-2 mt-2 cursor-pointer" size="sm">
+                                    Edit
+                                </flux:button>
 
-                            <form class="delete-form" action="{{ route('admin.categories.destroy', $category) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button class="btn btn-red mt-3 mb-3 cursor-pointer text-xs">
-                                    Delete
-                                </button>
-                            </form>
+                                <form class="delete-form" action="{{ route('admin.categories.destroy', $category) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <flux:button class="mt-2 mb-2 cursor-pointer" size="sm" type="submit">
+                                        Delete
+                                    </flux:button>
+                                </form>
+                            </flux:button.group>
                         </div>
                     </td>
                 </tr>
