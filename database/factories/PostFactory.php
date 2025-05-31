@@ -23,7 +23,6 @@ class PostFactory extends Factory
             'slug' => fake()->slug(),
             'excerpt' => fake()->paragraph(),
             'content' => fake()->paragraphs(3, true),
-            'img_path' => fake()->imageUrl(),
             'user_id' => User::factory(),
             'category_id' => Category::factory(),
             'is_published' => true,

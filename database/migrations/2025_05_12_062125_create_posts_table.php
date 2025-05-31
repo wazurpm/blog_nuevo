@@ -19,7 +19,7 @@ return new class extends Migration
                 ->nullable();
             $table->mediumText('content')
                 ->nullable();
-            $table->string('img_path')->nullable();
+            $table->string('image_path')->nullable();
             $table->foreignId('user_id')
                 ->constrained()
                 ->onDelete('cascade');
